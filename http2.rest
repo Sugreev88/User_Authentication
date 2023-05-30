@@ -1,0 +1,77 @@
+@baseurl=https://node-userauthentication-app.onrender.com
+
+###
+GET {{baseurl}}
+
+## user signup ##
+###
+POST {{baseurl}}/user/signup
+Content-Type: application/json
+
+{
+    "name":"Deepak",
+    "email":"ghuihhhj2@gmail.com",
+    "phone":8826891800,
+    "role":"Admin",
+    "password":"1234"
+}
+
+## verify user by sending otp on mobile ##
+###
+POST {{baseurl}}/user/verify/mobile
+Content-Type: application/json
+
+{
+    "phone":8826891859
+}
+
+## verifying user through otp ##
+###
+POST {{baseurl}}/user/verify/mobile/otp
+Content-Type: application/json
+
+{
+    "phone":8826891859,
+    "otp":709003
+}
+
+## user login by email and password ##
+###
+POST {{baseurl}}/user/login
+Content-Type: application/json
+
+{
+    "email":"ghuihhhj2@gmail.com",
+    "password":"1234"
+}
+
+## verifying user by sending otp on mail ##
+###
+
+POST {{baseurl}}/user/verify/email
+Content-Type: application/json
+
+{
+    "email":"ghuihhhj2@gmail.com"
+}
+
+## verifying user by otp through mail ##
+###
+POST {{baseurl}}/user/verify/email/otp
+Content-Type: application/json
+
+{
+    "email":"ghuihhhj2@gmail.com",
+    "otp":678646
+}
+
+## login via token ##
+###
+POST {{baseurl}}/user/login/token
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzU4MjI0MmJmN2FmMWQwYjM4NjJmNyIsImVtYWlsMSI6ImdodWloaGhqMkBnbWFpbC5jb20iLCJpYXQiOjE2ODU0NDI0OTN9.fiKJUNsUFYOcJidJ1DvwHjTihUjTgrwfdoqV7ySkfXs
+
+
+## user logout ##
+###
+POST {{baseurl}}/user/logout
+Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzU4MjI0MmJmN2FmMWQwYjM4NjJmNyIsImVtYWlsMSI6ImdodWloaGhqMkBnbWFpbC5jb20iLCJpYXQiOjE2ODU0MjI3MjZ9.848TAjau9ugScdO2Bhy8LRMId8QspTht60wweNj46Lg
