@@ -1,0 +1,222 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "User Authentication",
+    "description": "User Authentication Endpoints",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000/"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "paths": {
+    "/user/signup": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "create a new User",
+        "parameters": [
+          {
+            "name": "user inputs",
+            "in": "body",
+            "description": "User SignUp details",
+            "schema": {
+              "$ref": "#/definitions/userInput"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/verify/mobile": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "verify user by mobile",
+        "parameters": [
+          {
+            "name": "user inputs",
+            "in": "body",
+            "description": "user verification by mobile",
+            "schema": {
+              "$ref": "#/definitions/userVerificationInputsMobile"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/verify/mobile/otp": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "verify user mobile using otp",
+        "parameters": [
+          {
+            "name": "user inputs",
+            "in": "body",
+            "description": "verify mobile via otp",
+            "schema": {
+              "$ref": "#/definitions/userMobileVerificationOtp"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/verify/email": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "verify user by email",
+        "parameters": [
+          {
+            "name": "user inputs",
+            "in": "body",
+            "description": "verify email via otp",
+            "schema": {
+              "$ref": "#/definitions/emailVerification"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/verify/email/otp": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "verify otp via email ",
+        "parameters": [
+          {
+            "name": "user inputs",
+            "in": "body",
+            "description": "user email verification via otp",
+            "schema": {
+              "$ref": "#/definitions/emailVerificationViaOtp"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "user login",
+        "parameters": [
+          {
+            "name": "user inputs",
+            "in": "body",
+            "description": "user login via email and password",
+            "schema": {
+              "$ref": "#/definitions/userLogin"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/login/token": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "user login via token",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": "true",
+            "description": "Bearer token"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/user/logout": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "user logout via token",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": "true",
+            "description": "Bearer token"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "userInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "number"
+        },
+        "role": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "userVerificationInputsMobile": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "number"
+        }
+      }
+    },
+    "userMobileVerificationOtp": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "integer",
+          "format": "numeric"
+        },
+        "otp": {
+          "type": "integer",
+          "format": "numeric"
+        }
+      }
+    },
+    "emailVerification": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "emailVerificationViaOtp": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "otp": {
+          "type": "integer",
+          "format": "numeric"
+        }
+      }
+    },
+    "userLogin": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

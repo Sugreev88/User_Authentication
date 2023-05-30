@@ -1,0 +1,8 @@
+(* means done)
+Requirements for user authentication{
+    - user signup(we create a user active flag in schema and but by default it is false so after verification via otp using phone and email then the user will be active)
+    - user verification (after signup we verify a user by sending otp on phone and mail and make the user active -- two end points one for email and one for phone) 
+    - user login(login via email or phone and password generate jwt token during login with a expiry of 30 minutes )
+    - user logout (first check if the user is logged in )
+    - 
+}
