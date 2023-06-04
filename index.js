@@ -6,7 +6,6 @@ const db = require("./utils/dbUtils");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./utils/swagger.json");
 const authRoute = require("./routes/authRoute");
-// app.use(express.json());
 app.use(express.json());
 app.use("/user", authRoute);
 

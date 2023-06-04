@@ -49,13 +49,7 @@ const generateOtpViaMail = async function (email) {
       text: `your verification code is ${otp}`,
     };
 
-    return transporter.sendMail(mailOptions, function (error, info) {
-      // if (error) {
-      //   console.log(error);
-      // } else {
-      //   console.log("Email sent: ");
-      // }
-    });
+    return transporter.sendMail(mailOptions, function (error, info) {});
   } catch (error) {
     throw error;
   }
